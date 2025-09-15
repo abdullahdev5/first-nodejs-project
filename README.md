@@ -212,3 +212,23 @@ I chose ESM because it’s the modern JavaScript standard and works naturally wi
 
 ---
 
+## Conclusion
+
+- This project helped me:
+- Get started with Node.js basics
+- Work with core modules (os, path, fs, events)
+- Use third-party modules (axios, express)
+- Configure TypeScript and run .ts files with tsx
+- Use nodemon for auto-reloading
+- Understand the difference between CommonJS and ESM
+
+This is just the beginning of my Node.js journey!
+
+---
+
+## Clone This Project
+
+To clone this project and try it yourself
+```
+git clone https://github.com/abdullahdev5/first-nodejs-project.git
+```
