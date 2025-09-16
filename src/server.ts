@@ -1,3 +1,46 @@
+/* Learning MongoDB */
+
+import userRouter from "./mongodb/routes/userRoutes.js";
+import express from 'express';
+import { connectDB, closeDB } from "./mongodb/config/mongodbconfig.js";
+import dotenv from 'dotenv';
+
+
+async function start() {
+
+    dotenv.config();
+    await connectDB();
+
+    const app = express();
+
+    app.use(express.json());
+
+
+    app.use('/api/users', userRouter);
+
+    const port = process.env.PORT || 3000;
+
+    app.listen(port, () => {
+        console.log(`Server is Running at http://localhost:${port}`);
+    });
+
+    process.on('SIGINT', async () => {
+        await closeDB();
+        process.exit(0);
+    });
+
+    process.on('SIGTERM', async () => {
+        await closeDB();
+        process.exit(0);
+    });
+}
+
+
+
+start();
+
+
+
 /* Learning Axios Module */
 /*
 import { downloadImage } from './axiosmodule.js';
@@ -8,7 +51,7 @@ downloadImage();
 
 
 /* Learning Express & Events Module */
-
+/*
 interface User {
     id: string | number,
     name: string
@@ -148,5 +191,6 @@ app.delete('/users{/:id}', (req: Request, res: Response) => {
 
 
 app.listen(port, () => {
-    console.log(`NodeJs Server is Running on http://localhost:${port}`);
+    console.log(`Server is Running on http://localhost:${port}`);
 });
+*/
