@@ -14,11 +14,12 @@ I practiced using built-in Node.js modules, third-party libraries, and tools to 
   - `events` (Event-driven programming)  
 - **Third-party modules**:  
   - `axios` (HTTP requests)  
-  - `express` (Web server framework)  
+  - `express` (Web server framework)
+  - `mongodb` (NoSql Document Based Database)
 - Adding **TypeScript** in Node.js  
 - Running `.ts` files directly with **tsx**  
 - Using **nodemon** to auto-restart server when files change  
-- Difference between **CommonJS** and **ESM** (I chose **ESM**)  
+- Difference between **CommonJS** and **ESM** (I chose **ESM**)
 
 ---
 
@@ -109,10 +110,15 @@ emitter.emit("greet", "World"); // This will print: ('Hello, World')
 // axiosmodule.ts
 import axios from "axios";
 
-const fetchData = async () => {
-  const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
-  console.log(res.data);
-};
+async function fetchData() {
+    try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+        console.log(`Response Status Code: ${response.status}`)
+        console.log(`Response Data: ${JSON.stringify(response.data)}`)
+    } catch (e) {
+        console.error(`Error: ${e}`)
+    }
+}
 
 fetchData();
 
@@ -212,6 +218,16 @@ I chose ESM because it’s the modern JavaScript standard and works naturally wi
 
 ---
 
+## MongoDB
+
+for MongoDB Code Check this Repo's Source Code there:-
+```
+./src/mongodb
+```
+
+---
+
+
 ## Conclusion
 
 - This project helped me:
@@ -232,3 +248,4 @@ To clone this project and try it yourself
 ```
 git clone https://github.com/abdullahdev5/first-nodejs-project.git
 ```
+
