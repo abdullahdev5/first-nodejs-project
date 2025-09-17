@@ -144,6 +144,15 @@ app.listen(PORT, () => {
 
 ---
 
+## MongoDB
+
+for MongoDB Code Check this Repo's Source Code there:-
+```
+./src/mongodb
+```
+
+---
+
 ## Adding TypeScript to Node.js Project
 
 ### Step 1: Install TypeScript
@@ -218,16 +227,6 @@ I chose ESM because it’s the modern JavaScript standard and works naturally wi
 
 ---
 
-## MongoDB
-
-for MongoDB Code Check this Repo's Source Code there:-
-```
-./src/mongodb
-```
-
----
-
-
 ## Conclusion
 
 - This project helped me:
@@ -248,4 +247,5 @@ To clone this project and try it yourself
 ```
 git clone https://github.com/abdullahdev5/first-nodejs-project.git
 ```
+
 
