@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { createUser, getAllUsers, getUserByID, deleteUser } from "../models/user.js";
+import { createUser, getUsers, getUserByID, deleteUser } from "../models/user.js";
 import { User } from "../models/user.js";
 
 
@@ -26,6 +26,7 @@ router.post('/', async (req: Request<{}, {}, User>, res: Response) => {
 
 router.get('{/:id}', async (req: Request, res: Response) => {
     const { id } = req.params;
+    const { name, email } = req.query;
     try {
         if (id) {
             const user = await getUserByID(id);
@@ -36,7 +37,7 @@ router.get('{/:id}', async (req: Request, res: Response) => {
             return res.json(user);
         }
 
-        const users = await getAllUsers();
+        const users = await getUsers(name as string, email as string);
         console.log(`Users (getAllUsers): ${JSON.stringify(users, null, 2)}`);
 
         return res.json(users);

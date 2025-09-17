@@ -24,8 +24,19 @@ async function createUser(user: User) {
 }
 
 
-async function getAllUsers(): Promise<Array<Object>> {
-    return await userCollection().find().toArray();
+async function getUsers(name?: string, email?: string): Promise<Array<Object>> {
+
+    const query: any = {};
+
+    if (name) {
+        query.name = { $regex: new RegExp(name, 'i') };
+    }
+
+    if (email) {
+        query.email = { $regex: new RegExp(email) };
+    }
+
+    return await userCollection().find(query).toArray();
 }
 
 async function getUserByID(id: string): Promise<Object | null> {
@@ -37,4 +48,4 @@ async function deleteUser(id: string) {
 }
 
 
-export { createUser, getAllUsers, getUserByID, deleteUser };
+export { createUser, getUsers, getUserByID, deleteUser };
